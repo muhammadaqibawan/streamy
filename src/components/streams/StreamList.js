@@ -18,7 +18,7 @@ const StreamList = () => {
             return (
                 <div className='right floated content'>
                     <Link className='ui button primary' to={`stream/edit/${stream.id}`}>Edit</Link>
-                    <button className='ui button negative'>Delete</button>
+                    <Link className='ui button negative' to={`stream/delete/${stream.id}`}>Delete</Link>
                 </div>
             )
         }
