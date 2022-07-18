@@ -40,7 +40,9 @@ const StreamList = () => {
                 <div className="item" key={stream.id}>
                     <i className="large camera middle aligned icon"></i>
                     <div className="content">
-                        <div className="header">{stream.title}</div>
+                        <div className="header">
+                            <Link to={`/stream/${stream.id}`}>{stream.title}</Link>
+                        </div>
                         <div className="description">{stream.description}</div>
                     </div>
                     {renderActionButton(stream)}
