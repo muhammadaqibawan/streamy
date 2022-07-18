@@ -1,4 +1,4 @@
-import { Route, Router } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 import history from "./components/history";
 import Header from "./components/Header";
 import StreamCreate from "./components/streams/StreamCreate";
@@ -12,11 +12,13 @@ function App() {
     <div className="ui container">
        <Router history={history}>
         <Header />
-        <Route path="/" exact component={StreamList} />
-        <Route path="/stream/create" component={StreamCreate} />
-        <Route path="/stream/show" component={StreamShow} />
-        <Route path="/stream/edit/:id" component={StreamEdit} />
-        <Route path="/stream/delete/:id" component={StreamDelete} />
+        <Switch>
+          <Route path="/" exact component={StreamList} />
+          <Route path="/stream/create" exact component={StreamCreate} />
+          <Route path="/stream/edit/:id" component={StreamEdit} />
+          <Route path="/stream/delete/:id" component={StreamDelete} />
+          <Route path="/stream/:id" exact component={StreamShow} />
+        </Switch>
       </Router>
     </div>
   );
